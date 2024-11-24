@@ -1,0 +1,23 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Tags from './parts/tags.vue'
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="h-screen w-screen flex flex-col p-0">
+			<Header />
+			<main class="flex flex-col gap-[20px] w-full h-full overflow-y-scroll px-0 py-[20px] no-scroll-container">
+                <Tags />
+            </main>
+			<Footer />
+		</div>
+	</body>
+</html>

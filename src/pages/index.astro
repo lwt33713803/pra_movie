@@ -1,0 +1,42 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Cards from './parts/cards.vue'
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="h-screen w-screen flex flex-col p-0">
+			<Header />
+			<main
+			class="grid grid-cols-1 px-[15px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-[20px] max-w-7xl w-full h-full overflow-y-scroll px-0 py-[20px] no-scroll-container"
+		  >
+			<Cards client:load />
+		  </main>
+		</div>
+	</body>
+	<script>
+		window.addEventListener("DOMContentLoaded",function(){
+			const cards = document.querySelectorAll("section.cards");
+			cards.forEach((card) => {
+				card.addEventListener("mouseover", () => {
+					cards.forEach((card) => {
+						card.classList.add("opacity-50");
+					})
+					card.classList.remove("opacity-50");
+				});
+				card.addEventListener("mouseout", () => {
+					cards.forEach((card) => {
+						card.classList.remove("opacity-50");
+					})
+				})
+			});
+		});
+	</script>
+</html>

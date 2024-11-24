@@ -1,0 +1,82 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+	<nav>
+		<h2><a href="/" class="noto-sans-sc-400">{SITE_TITLE}</a></h2>
+		<div class="internal-links noto-sans-sc-200">
+			<HeaderLink href="/">今日推荐</HeaderLink>
+			<!-- <HeaderLink href="/codes">番号库</HeaderLink>
+			<HeaderLink href="/actors">演员库</HeaderLink>
+			<HeaderLink href="/tags">标签库</HeaderLink>
+			<HeaderLink href="/topic">专题库</HeaderLink> -->
+		</div>
+	</nav>
+</header>
+<style>
+	.noto-sans-sc-100 {
+		font-family: "Noto Sans SC", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 100;
+		font-style: normal;
+	}
+	.noto-sans-sc-200 {
+		font-family: "Noto Sans SC", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 200;
+		font-style: normal;
+	}
+	.noto-sans-sc-300 {
+		font-family: "Noto Sans SC", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+	}
+	.noto-sans-sc-400 {
+		font-family: "Noto Sans SC", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: white;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>
